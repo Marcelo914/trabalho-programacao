@@ -6,11 +6,11 @@
 
 
 void cadastro(int s[60]){
-  char nome[60], psize[100];
-  int login, password, rptpassword, intpsize, try;
-  float renda;
+  char nome[60], strpassword[60];
+  int login, password, rptpassword, sizepassw, try;
+  double renda;
   try = 3;
-
+  
   system("clear||cls");
 
   printf("Bem vindo\n");
@@ -22,8 +22,21 @@ void cadastro(int s[60]){
   printf("Digite a sua renda mensal: \n");
   renda = income(renda);
   printf("Define a sua senha:\n");
+  scanf("%d", &password);
 
+  sprintf(strpassword, "%d", password);
+  sizepassw = strlen(strpassword);
+
+  while (sizepassw < 8 && try > 0) {
+    printf("A senha deve ter pelo menos 8 caracteres\n");
+    printf("Digite-a novamente: ");
+    scanf("%d", &password);
+    sprintf(strpassword, "%d", password);
+    sizepassw = strlen(strpassword);
+    try --;
+  }
 }
+
 
 
 int main() {

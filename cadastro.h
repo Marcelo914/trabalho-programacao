@@ -6,8 +6,8 @@ char user_name(char nome[60]) {
   printf("%s\n", nome);
 }
 
-float income(float renda) {
-  scanf("%f", &renda);
-  printf("%.2f\n", renda);
+double income(double renda) {
+  scanf("%lf", &renda);
+  printf("%.2lf\n", renda);
 }
 #endif
