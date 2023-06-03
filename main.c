@@ -6,7 +6,7 @@
 #include <string.h>
 #include <time.h>
 int loginsuc, v[60];
-double saldo, deposit;
+double saldo, deposit, saque;
 long int password;
 
 void cadastro(int s[60]){
@@ -22,7 +22,7 @@ void cadastro(int s[60]){
   system("clear||cls");
   
   printf("Bem vindo\n");
-  printf("\"nome do banco\"\n\n");
+  printf("Wu Dingchang\n");
 
 
 
@@ -87,10 +87,12 @@ void menu_opcoes(int s[60]){
       scanf("%d", &choose);
       if (choose == 1) {
         printf("o seu saldo atual é de %.2lf\n", saldo);
+        menu_opcoes(v);
         
       }
       else if (choose == 2) {
         printf("depois eu vejo isso mo preguiça mas é pra ter o extrato viu.\n");
+        menu_opcoes(v);
       
       }
       else {
@@ -109,7 +111,17 @@ void menu_opcoes(int s[60]){
     break;
     
     case 3 :
-    printf ("3 - Sacar.\n");
+      printf("Quanta você deseja sacar? \n");
+      scanf("%lf", &saque);
+      if (saque > saldo) {
+        printf("você não tem saldo o suficiente para este saque\n");
+        menu_opcoes(v);
+      }
+      else {
+        saldo = saldo - saque;
+        printf("o saldo atual é de %.2lf\n", saldo);
+        printf("saque concluido com sucesso\n");
+      }
     break;
     
     case 4 :
