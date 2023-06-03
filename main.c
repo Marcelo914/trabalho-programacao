@@ -1,5 +1,6 @@
 #include "cadastro.h"
 #include <complex.h>
+#include "start.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,14 +8,15 @@
 
 void cadastro(int s[60]){
   char nome[60], strpassword[60];
-  int login, password, confpassword, sizepassw, try;
-  double renda;
+  int login, password, confpassword, sizepassw, try, choose;
+  double renda, saldo;
   try = 3;
-  
+   
   system("clear||cls");
-
+  
   printf("Bem vindo\n");
   printf("\"nome do banco\"\n\n");
+
 
 
   printf("Escreva o seu nome a seguir: \n");
