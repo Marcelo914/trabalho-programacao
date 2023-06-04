@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 int loginsuc, v[60], quit;
 double saldo, deposit, saque, valor;
-long int password, confsenha;
+long int password, confsenha, redsenha[8];
 
 void cadastro(int s[60]) {
   char nome[60], strpassword[60];
@@ -63,13 +64,13 @@ void menu_opcoes(int s[60]) {
   double add;
 
   printf("\n\n -----------------------");
-  printf("Escolha uma opÃ§Ã£o:\n");
+  printf("Escolha uma opção:\n");
   printf("\n");
   printf("1 - Saldo\n");
   printf("2 - Deposito\n");
   printf("3 - Sacar\n");
   printf("4 - Transferencia\n");
-  printf("5 - Outros\n");
+  printf("5 - Redefinir senha\n");
   printf("6 - Sair\n");
   printf("\n");
   scanf("%d", &choices);
@@ -83,12 +84,12 @@ void menu_opcoes(int s[60]) {
     scanf("%d", &choose);
     if (choose == 1) {
       system("clear||cls");
-      printf("o seu saldo atual Ã© de %.2lf\n", saldo);
+      printf("o seu saldo atual é de %.2lf\n", saldo);
       menu_opcoes(v);
 
     } else if (choose == 2) {
       system("clear||cls");
-      printf("depois eu vejo isso mÃ³ preguiÃ§a mas Ã© pra ter o extrato viu.\n");
+      printf("depois eu vejo isso mó preguiça mas é pra ter o extrato viu.\n");
       menu_opcoes(v);
 
     } else {
@@ -107,25 +108,25 @@ void menu_opcoes(int s[60]) {
     break;
 
   case 3:
-    printf("Quanta vocÃª deseja sacar? \n");
+    printf("Quanta você deseja sacar? \n");
     scanf("%lf", &saque);
     if (saque > saldo) {
       system("clear||cls");
-      printf("vocÃª nÃ£o tem saldo o suficiente para este saque\n");
+      printf("você não tem saldo o suficiente para este saque\n");
       menu_opcoes(v);
     } else {
       saldo = saldo - saque;
       system("clear||cls");
       printf("saque concluido com sucesso\n");
-      printf("o saldo atual Ã© de %.2lf\n", saldo);
+      printf("o saldo atual é de %.2lf\n", saldo);
       menu_opcoes(v);
     }
     break;
 
   case 4:
-    printf("\nNumero da Conta de TransferÃªncia: ");
+    printf("\nNumero da Conta de Transferência: ");
     scanf("%ld", &numconta);
-    printf("\n Informe o valor para transferÃªncia: ");
+    printf("\n Informe o valor para transferência: ");
     scanf("%lf", &valor);
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
@@ -138,16 +139,23 @@ void menu_opcoes(int s[60]) {
     }
     else{
         system("clear||cls");
-        printf("senha incorreta, retornando ao menu de opÃ§Ãµes\n");
+        printf("senha incorreta, retornando ao menu de opções\n");
         menu_opcoes(v);
       }
     break;
 
   case 5:
-    printf("5 - Outros.\n");
+    printf("5 - Redefinir senha.\n");
+    if (password == redsenha){
+      printf("A senha redefinida não pode ser igual a antiga.\n");
+      scanf("%ld", &redsenha);
+    }
+    else {
+      printf("Senha redefinida.\n");
+      }  
     break;
   case 6:
-    printf("atÃ© a proxima\n");
+    printf("até a proxima\n");
     quit = 1;
     break;
   }
