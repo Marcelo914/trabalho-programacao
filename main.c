@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-int loginsuc, v[60];
+int loginsuc, v[60], quit;
 double saldo, deposit, saque;
 long int password;
 
@@ -91,7 +91,7 @@ void menu_opcoes(int s[60]){
         
       }
       else if (choose == 2) {
-        printf("depois eu vejo isso mo preguiça mas é pra ter o extrato viu.\n");
+        printf("depois eu vejo isso mó preguiça mas é pra ter o extrato viu.\n");
         menu_opcoes(v);
       
       }
@@ -124,19 +124,28 @@ void menu_opcoes(int s[60]){
       }
     break;
     
-    case 4 :
+    case 4:
     printf ("4 - Transferência.\n");
     break;
     
     case 5 :
     printf ("5 - Outros.\n");
     break;
+    case 6:
+    printf("até a proxima\n");
+    quit = 1;
+    break;
     }
   }
 int main() {
+  int start;
+  printf("Bem vindo ao banco\n");
+  printf("1 - cadastro\n2 - login\n");
   cadastro(v);
   if (loginsuc == 1) {
     menu_opcoes(v);
   }
-  return 0;
+  if (quit == 1) {
+    return 0;
+  }
 }
