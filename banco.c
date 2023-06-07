@@ -64,7 +64,7 @@ void menu_opcoes(int s[60]) {
   double add;
 
   printf("\n\n -----------------------");
-  printf("Escolha uma op��o:\n");
+  printf("Escolha uma opção:\n");
   printf("\n");
   printf("1 - Saldo\n");
   printf("2 - Deposito\n");
@@ -84,7 +84,7 @@ void menu_opcoes(int s[60]) {
     scanf("%d", &choose);
     if (choose == 1) {
       system("clear||cls");
-      printf("o seu saldo atual � de %.2lf\n", saldo);
+      printf("o seu saldo atual é de %.2lf\n", saldo);
       menu_opcoes(v);
 
     } else if (choose == 2) {
@@ -108,25 +108,25 @@ void menu_opcoes(int s[60]) {
     break;
 
   case 3:
-    printf("Quanta voc� deseja sacar? \n");
+    printf("Quanta você deseja sacar? \n");
     scanf("%lf", &saque);
     if (saque > saldo) {
       system("clear||cls");
-      printf("voc� n�o tem saldo o suficiente para este saque\n");
+      printf("saldo insuficiente\n");
       menu_opcoes(v);
     } else {
       saldo = saldo - saque;
       system("clear||cls");
       printf("saque concluido com sucesso\n");
-      printf("o saldo atual � de %.2lf\n", saldo);
+      printf("o saldo atual é de %.2lf\n", saldo);
       menu_opcoes(v);
     }
     break;
 
   case 4:
-    printf("\nNumero da Conta de Transfer�ncia: ");
+    printf("\nNumero da Conta de Transferência: ");
     scanf("%ld", &numconta);
-    printf("\n Informe o valor para transfer�ncia: ");
+    printf("\n Informe o valor para transferência: ");
     scanf("%lf", &valor);
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
@@ -139,7 +139,7 @@ void menu_opcoes(int s[60]) {
     }
     else{
         system("clear||cls");
-        printf("senha incorreta, retornando ao menu de op��es\n");
+        printf("senha incorreta, retornando ao menu de opções\n");
         menu_opcoes(v);
       }
     break;
@@ -148,7 +148,7 @@ void menu_opcoes(int s[60]) {
     printf("5 - Redefinir senha.\n");
     scanf("%ld", &redsenha);
     if (password == redsenha){
-      printf("A senha redefinida n�o pode ser igual a antiga.\n");
+      printf("A senha redefinida não pode ser igual a antiga.\n");
       menu_opcoes(v);
     }
     else {
@@ -157,7 +157,7 @@ void menu_opcoes(int s[60]) {
       }  
     break;
   case 6:
-    printf("at� a proxima\n");
+    printf("até a proxima\n");
     quit = 1;
     break;
   }
