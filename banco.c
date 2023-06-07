@@ -89,7 +89,7 @@ void menu_opcoes(int s[60]) {
 
     } else if (choose == 2) {
       system("clear||cls");
-      printf("depois eu vejo isso m� pregui�a mas � pra ter o extrato viu.\n");
+      printf("depois eu vejo isso mó preguiça mas é pra ter o extrato viu.\n");
       menu_opcoes(v);
 
     } else {
@@ -131,6 +131,9 @@ void menu_opcoes(int s[60]) {
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
     if (confsenha == password) {
+        if (valor < saldo) {
+          printf("erro ao efetuar a transferência.\n saldo insuficiente.\n");
+        }
       saldo = saldo - valor;
       system("clear||cls");
       printf("Transferencia efetuada com sucesso\n");
