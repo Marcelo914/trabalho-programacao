@@ -131,7 +131,7 @@ void menu_opcoes(int s[60]) {
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
     if (confsenha == password) {
-        if (valor < saldo) {
+        if (valor > saldo) {
           printf("erro ao efetuar a transferência.\n saldo insuficiente.\n");
         }
       saldo = saldo - valor;
