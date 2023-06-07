@@ -1,5 +1,4 @@
 #include "cadastro.h"
-#include "deposito.h"
 #include <complex.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +49,7 @@ void cadastro(int s[60]) {
       try--;
     }
     if (try <= 0) {
-      printf("entre em contato com o gerente %ld\n", numgerente);
+      printf("entre em contato com o gerente: %ld\n", numgerente);
     }
   }
   if (confpassword == password) {
