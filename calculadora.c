@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+//autoadd
 int num1, num2, result;
 int soma(int num1, int num2, int result){
   result = num1 + num2;
