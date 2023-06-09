@@ -62,15 +62,6 @@ void menu_opcoes(int s[60]) {
   int choices, comprovante;
   double add;
 
-  time_t current_time;
-  struct tm* timeinfo;
-
-  current_time = time(NULL);
-
-
-  timeinfo = localtime(&current_time);
-  printf("currentTime data and time: %s", asctime(timeinfo));
-
   printf("\n\n -----------------------");
   printf("Escolha uma opção:\n");
   printf("\n");
@@ -115,7 +106,11 @@ void menu_opcoes(int s[60]) {
     printf("Sim(1)\nNão(0)");
     scanf("%d", &comprovante);
     if (comprovante == 1) {
-      printf("15:19");
+      time_t current_time;
+      struct tm *timeinfo;
+      current_time = time(NULL);
+      timeinfo = localtime(&current_time);
+      printf("%s", asctime(timeinfo));
     }
     system("clear||cls");
     menu_opcoes(v);
