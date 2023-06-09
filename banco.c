@@ -110,9 +110,9 @@ void menu_opcoes(int s[60]) {
       struct tm *timeinfo;
       current_time = time(NULL);
       timeinfo = localtime(&current_time);
+      system("clear||cls");
       printf("%s", asctime(timeinfo));
     }
-    system("clear||cls");
     menu_opcoes(v);
     break;
 
