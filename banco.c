@@ -111,9 +111,9 @@ void menu_opcoes(int s[60]) {
       current_time = time(NULL);
       timeinfo = localtime(&current_time);
       system("clear||cls");
-      printf("%s", asctime(timeinfo));
-      printf("%.2lf", deposit);
-      printf("%.2lf", saldo);
+      printf("%s\n", asctime(timeinfo));
+      printf("%.2lf\n", deposit);
+      printf("o saldo atual é de %.2lf\n", saldo);
     }
     else if (comprovante == 0) {
         system("clear||cls");
@@ -123,7 +123,7 @@ void menu_opcoes(int s[60]) {
     break;
 
   case 3:
-    printf("Quanta você deseja sacar? \n");
+    printf("Quanto você deseja sacar? \n");
     scanf("%lf", &saque);
     if (saque > saldo) {
       system("clear||cls");
