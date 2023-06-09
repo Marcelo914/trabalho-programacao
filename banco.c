@@ -59,8 +59,17 @@ void cadastro(int s[60]) {
 }
 void menu_opcoes(int s[60]) {
   long int numconta;
-  int choices;
+  int choices, comprovante;
   double add;
+
+  time_t current_time;
+  struct tm* timeinfo;
+
+  current_time = time(NULL);
+
+
+  timeinfo = localtime(&current_time);
+  printf("currentTime data and time: %s", asctime(timeinfo));
 
   printf("\n\n -----------------------");
   printf("Escolha uma opção:\n");
@@ -102,6 +111,12 @@ void menu_opcoes(int s[60]) {
     printf("Digite o valor de deposito\n");
     scanf("%lf", &deposit);
     saldo = saldo + deposit;
+    printf("Deseja receber o comprovante do deposito? \n");
+    printf("Sim(1)\nNão(0)");
+    scanf("%d", &comprovante);
+    if (comprovante == 1) {
+      printf("15:19");
+    }
     system("clear||cls");
     menu_opcoes(v);
     break;
@@ -130,33 +145,31 @@ void menu_opcoes(int s[60]) {
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
     if (confsenha == password) {
-        if (valor > saldo) {
-          printf("erro ao efetuar a transferência.\n saldo insuficiente.\n");
-        }
+      if (valor > saldo) {
+        printf("erro ao efetuar a transferência.\n saldo insuficiente.\n");
+      }
       saldo = saldo - valor;
       system("clear||cls");
       printf("Transferencia efetuada com sucesso\n");
       printf("saldo atual de:%.2f", saldo);
       menu_opcoes(v);
+    } else {
+      system("clear||cls");
+      printf("senha incorreta, retornando ao menu de opções\n");
+      menu_opcoes(v);
     }
-    else{
-        system("clear||cls");
-        printf("senha incorreta, retornando ao menu de opções\n");
-        menu_opcoes(v);
-      }
     break;
 
   case 5:
     printf("5 - Redefinir senha.\n");
     scanf("%ld", &redsenha);
-    if (password == redsenha){
+    if (password == redsenha) {
       printf("A senha redefinida não pode ser igual a antiga.\n");
       menu_opcoes(v);
-    }
-    else {
+    } else {
       printf("Senha redefinida.\n");
       menu_opcoes(v);
-      }  
+    }
     break;
   case 6:
     printf("até a proxima\n");
