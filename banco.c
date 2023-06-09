@@ -112,8 +112,8 @@ void menu_opcoes(int s[60]) {
       timeinfo = localtime(&current_time);
       system("clear||cls");
       printf("%s", asctime(timeinfo));
-      printf("%lf", deposit);
-      printf("%lf", saldo);
+      printf("%.2lf", deposit);
+      printf("%.2lf", saldo);
     }
     else if (comprovante == 0) {
         system("clear||cls");
