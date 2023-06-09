@@ -103,7 +103,7 @@ void menu_opcoes(int s[60]) {
     scanf("%lf", &deposit);
     saldo = saldo + deposit;
     printf("Deseja receber o comprovante do deposito? \n");
-    printf("Sim(1)\nNão(0)");
+    printf("Sim(1)\nNão(0)\n");
     scanf("%d", &comprovante);
     if (comprovante == 1) {
       time_t current_time;
