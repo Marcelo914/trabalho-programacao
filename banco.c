@@ -49,7 +49,7 @@ void cadastro(int s[60]) {
       try--;
     }
     if (try <= 0) {
-      printf("entre em contato com o gerente: %ld\n", numgerente);
+      printf("entre em contato com o gerente: %lld\n", numgerente);
     }
   }
   if (confpassword == password) {
@@ -173,6 +173,7 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
     } else {
       printf("Senha redefinida.\n");
+      password = redsenha;
       menu_opcoes(v);
     }
     break;
