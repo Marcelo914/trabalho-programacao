@@ -137,11 +137,10 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
     }
     break;
-
   case 4:
     printf("\nNumero da Conta de Transferência:\n");
     scanf("%ld", &numconta);
-    printf("\n Informe o valor para transferência:\n");
+    printf("\nInforme o valor para transferência:\n");
     scanf("%lf", &valor);
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
@@ -151,12 +150,15 @@ void menu_opcoes(int s[60]) {
         system("clear||cls");
         menu_opcoes(v);
       }
+      else {
       saldo = saldo - valor;
       system("clear||cls");
       printf("Transferencia efetuada com sucesso\n");
       printf("saldo atual de:%.2f", saldo);
       menu_opcoes(v);
-    } else {
+      }
+      }
+    else {
       system("clear||cls");
       printf("senha incorreta, retornando ao menu de opções\n");
       menu_opcoes(v);
