@@ -12,10 +12,10 @@ long int password, confsenha, redsenha;
 void cadastro(int s[60]) {
   char nome[60], strpassword[60];
   int login, confpassword, sizepassw, try, choose;
-  long long int numgerente1;
+  long long int numgerente;
   double renda;
   try = 3;
-  numgerente1 = 61998007307;
+  numgerente = 61998007307;
 
   system("clear||cls");
 
