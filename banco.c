@@ -87,8 +87,9 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
 
     } else if (choose == 2) {
+      printf("é pra ter o extrato aqui viu\n");
       system("clear||cls");
-      printf("depois eu vejo isso mó preguiça mas é pra ter o extrato viu.\n");
+
       menu_opcoes(v);
 
     } else {
@@ -157,7 +158,7 @@ void menu_opcoes(int s[60]) {
       printf("saldo atual de:%.2f", saldo);
       menu_opcoes(v);
       }
-      }
+    }
     else {
       system("clear||cls");
       printf("senha incorreta, retornando ao menu de opções\n");
