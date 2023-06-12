@@ -139,15 +139,16 @@ void menu_opcoes(int s[60]) {
     break;
 
   case 4:
-    printf("\nNumero da Conta de Transferência: ");
+    printf("\nNumero da Conta de Transferência:\n");
     scanf("%ld", &numconta);
-    printf("\n Informe o valor para transferência: ");
+    printf("\n Informe o valor para transferência:\n");
     scanf("%lf", &valor);
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
     if (confsenha == password) {
       if (valor > saldo) {
-        printf("erro ao efetuar a transferência.\nsaldo insuficiente.\n");
+        printf("erro ao efetuar a transferência.\nsaldo insuficiente.");
+        system("clear||cls");
         menu_opcoes(v);
       }
       saldo = saldo - valor;
