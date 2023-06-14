@@ -8,12 +8,13 @@
 int loginsuc, v[60], quit;
 double saldo, deposit, saque, valor;
 long int password, confsenha, redsenha;
+char nome[60];
+double renda;
 
 void cadastro(int s[60]) {
-  char nome[60], strpassword[60];
+  char strpassword[60];
   int login, confpassword, sizepassw, try, choose;
   long long int numgerente;
-  double renda;
   try = 3;
   numgerente = 61998007307;
 
@@ -87,8 +88,19 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
 
     } else if (choose == 2) {
-      printf("é pra ter o extrato aqui viu\n");
+// extrato
       system("clear||cls");
+      printf("%s\n", nome);
+      printf("Saldo atual: \n%.2lf\n", saldo);
+      time_t current_time;
+      struct tm *timeinfo;
+      current_time = time(NULL);
+      timeinfo = localtime(&current_time);
+      printf("%s\n", asctime(timeinfo));
+      printf("\n\n------------------------------------\n");
+      printf("historico de movimentações\n");
+      printf("");
+      
 
       menu_opcoes(v);
 
