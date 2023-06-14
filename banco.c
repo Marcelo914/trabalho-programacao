@@ -12,13 +12,15 @@ char nome[60];
 double renda;
 
 void cadastro(int s[60]) {
-  char strpassword[60];
+ char strpassword[60];
   int login, confpassword, sizepassw, try, choose;
   long long int numgerente;
   try = 3;
   numgerente = 61998007307;
 
   system("clear||cls");
+
+//comeco do programa (cadastro)
 
   printf("Bem-vindo(a) ao Banco Universal!\n\n" "EU SOU UNIVERSAL\n\n");
 
@@ -32,8 +34,10 @@ void cadastro(int s[60]) {
   sprintf(strpassword, "%ld", password);
   sizepassw = strlen(strpassword);
 
+//Declaracao da senha (caso tenha um erro, procurar o gerente)
+
   while (sizepassw < 8) {
-    printf("A senha deve ter pelo menos 8 caracteres\n");
+    printf("A senha deve ter pelo menos 2 caracteres\n");
     printf("Digite-a novamente: ");
     scanf("%ld", &password);
     sprintf(strpassword, "%ld", password);
@@ -43,20 +47,22 @@ void cadastro(int s[60]) {
   scanf("%d", &confpassword);
   if (confpassword != password) {
     while (try > 0 && confpassword != password) {
-      printf("senha errada, tente novamente.\n");
+      printf("Senha errada, tente novamente.\n");
       printf("%d tentativas restantes\n", try);
       scanf("%d", &confpassword);
       try--;
     }
     if (try <= 0) {
-      printf("entre em contato com o gerente: %lld\n", numgerente);
+      printf("Entre em contato com o gerente: %lld\n", numgerente);
     }
   }
   if (confpassword == password) {
-    printf("cadastro pronto\n\n");
+    printf("Cadastro pronto\n\n");
     loginsuc = 1;
   }
 }
+//comeco do menu de opcoes
+
 void menu_opcoes(int s[60]) {
   long int numconta;
   int choices, comprovante;
@@ -82,7 +88,7 @@ void menu_opcoes(int s[60]) {
     scanf("%d", &choose);
     if (choose == 1) {
       system("clear||cls");
-      printf("o seu saldo atual eh de %.2lf\n\n", saldo);
+      printf("O seu saldo atual eh de %.2lf\n\n", saldo);
       menu_opcoes(v);
 
     } else if (choose == 2) {
@@ -97,7 +103,7 @@ void menu_opcoes(int s[60]) {
       timeinfo = localtime(&current_time);
       printf("%s\n", asctime(timeinfo));
       printf("\n------------------------------------\n\n");
-      printf("historico de movimentacao\n\n");
+      printf("Historico de movimentacao\n\n");
       printf("");
       
 
@@ -108,6 +114,8 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
     }
     break;
+    
+//deposito
 
   case 2:
     printf("Deposito\n\n");
@@ -117,6 +125,9 @@ void menu_opcoes(int s[60]) {
     printf("Deseja receber o comprovante do deposito? \n");
     printf("Sim(1)\n" "Nao(0)\n");
     scanf("%d", &comprovante);
+    
+//variavel para declarar o comprovante caso precise
+    
     if (comprovante == 1) {
       time_t current_time;
       struct tm *timeinfo;
@@ -134,6 +145,8 @@ void menu_opcoes(int s[60]) {
     menu_opcoes(v);
     break;
 
+//saque
+
   case 3:
     printf("Quanto voce deseja sacar? \n");
     scanf("%lf", &saque);
@@ -149,16 +162,24 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
     }
     break;
-  case 4:
+    
+//Transferencia    
+    
+ case 4:
     printf("\nNumero da Conta de Transferencia:\n");
     scanf("%ld", &numconta);
     printf("\nInforme o valor para transferencia:\n");
     scanf("%lf", &valor);
     printf("Digite a sua senha\n");
     scanf("%ld", &confsenha);
+    
+//variaveis para os casos de transferencias
+
     if (confsenha == password) {
       if (valor > saldo) {
-        printf("Erro ao efetuar a transferencia.\nSaldo Insuficiente.");
+      	system("cls");
+        printf("Erro ao efetuar a transferencia.\nSaldo insuficiente.");
+        sleep(2);
         system("clear||cls");
         menu_opcoes(v);
       }
@@ -177,6 +198,8 @@ void menu_opcoes(int s[60]) {
     }
     break;
 
+//redefinir senha
+
   case 5:
     printf("Digite a nova senha: \n");
     scanf("%ld", &redsenha);
@@ -189,19 +212,23 @@ void menu_opcoes(int s[60]) {
       menu_opcoes(v);
     }
     break;
+    
+//fim do codigo 
+    
   case 6:
     printf("Ate a proxima\n");
     quit = 1;
     break;
   }
 }
+
 int main() {
   int start;
   cadastro(v);
-  if (loginsuc == 1) {
+  if (loginsuc == 1) { //login de sucesso
     menu_opcoes(v);
   }
-  if (quit == 1) {
+  if (quit == 1) { //opcao de saida
     return 0;
   }
 }
